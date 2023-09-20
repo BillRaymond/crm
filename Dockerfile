@@ -40,15 +40,10 @@ RUN apt-get install -y gcc \
     python$PYVER-dev \
     virtualenv
 
-# Install Django
-RUN pip install django
-
-# In the demonstration video, it used MySQL, but I will use SQLite
-# # Install MySQL
-# RUN apt install -y mysql-server && \
-#     usermod -d /var/lib/mysql/ mysql && \
-#     pip install mysql-connector-python
-
+# Install Django and sqlite so extensions work
+RUN pip install django \
+    django-livereload-server && \
+    apt-get install sqlite3
 
 # Optionally install and configure Git
 # Note: Modify your username and email

@@ -32,8 +32,10 @@ def logout_user(request):
 
 
 def register_user(request):
+	# User filled out the form
 	if request.method == 'POST':
 		form = SignUpForm(request.POST)
+		# If registration was successful, log the user in
 		if form.is_valid():
 			form.save()
 			# Authenticate and login
@@ -43,8 +45,10 @@ def register_user(request):
 			login(request, user)
 			messages.success(request, "You Have Successfully Registered! Welcome!")
 			return redirect('home')
+	# User did not fill out the form, so display the form
 	else:
 		form = SignUpForm()
+		# Pass the form into the specified registration page
 		return render(request, 'register.html', {'form':form})
 
 	return render(request, 'register.html', {'form':form})
