@@ -26,7 +26,8 @@
 				"ms-vscode-remote.remote-containers",
 				"ms-python.python",
 				"ms-toolsai.jupyter",
-				"alexcvzz.vscode-sqlite"
+				"alexcvzz.vscode-sqlite",
+				"qwtel.sqlite-viewer"
 			]
 		}
 	   }
